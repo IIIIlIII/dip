@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerGraphTable">
+   <children>
+      <TableView fx:id="TableView" layoutX="-1.0" prefHeight="343.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="AdressColumn" prefWidth="599.1999999880791" text="Адреса" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
