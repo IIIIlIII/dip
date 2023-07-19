@@ -2,13 +2,12 @@ package httpRequest;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class HttpRequestSputnik {
-    public void httpRequestSputnik(String nameP,ArrayList arLongitude,ArrayList arLatitude){
+    public void httpRequestSputnik(String nameP, ArrayList arLongitude, ArrayList arLatitude){
         nameP = fit(nameP);
         String sputnik = "http://search.maps.sputnik.ru/search?q=";
         String query1 = sputnik+nameP;
@@ -70,6 +69,7 @@ public class HttpRequestSputnik {
         }
         System.out.println(str2 + "   " + str1);
         if((str1!=null)&&(str2!=null)) {
+            //System.out.println(str1+"  "+str2);
             float longitude = Float.parseFloat(str2);
             float latitude = Float.parseFloat(str1);
             arLongitude.add(longitude);

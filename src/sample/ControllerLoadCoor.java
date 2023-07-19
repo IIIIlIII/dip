@@ -1,5 +1,10 @@
 package sample;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,10 +13,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class ControllerLoadCoor {
     @FXML
@@ -31,7 +32,7 @@ public class ControllerLoadCoor {
 
     static Coor arr;
     static ArrayList<ArrayList> arrMatixLonLoad;
-    static ArrayList<ArrayList> arrMatixLatLoad;
+    static ArrayList<Float> arrMatixLatLoad;
 
     @FXML
     void initialize() {
@@ -46,7 +47,7 @@ public class ControllerLoadCoor {
 
     public void readfilelat(String fileway){
         FileInputStream fileInputStream = null;
-        ArrayList Matrixlist = null;
+        ArrayList<Float> Matrixlist = null;
         try {
             fileInputStream = new FileInputStream(fileway);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);

@@ -1,18 +1,22 @@
 package sample;
 
-import java.io.*;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import static sample.ControllerAddCoor.coordinate;
-import static sample.ControllerAddCoor.matrixSmCoor;
+import static sample.MenuController.matrixSmCoor;
 import static sample.ControllerTableWithAdresses.*;
-import static sample.MenuController.matrixCostCoor;
+import static sample.MenuController.*;
 
 public class ControllerSaveAs {
 

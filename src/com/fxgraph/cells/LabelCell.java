@@ -1,8 +1,7 @@
 package com.fxgraph.cells;
 
-import javafx.scene.control.Label;
-
 import com.fxgraph.graph.Cell;
+import javafx.scene.control.Label;
 
 public class LabelCell extends Cell {
 

@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class HttpRequestYandex{
-    public void httpRequestYandex(String nameP,ArrayList arLongitude,ArrayList arLatitude){
+    public void httpRequestYandex(String nameP, ArrayList arLongitude, ArrayList arLatitude){
         nameP = fit(nameP);
         String yandex = "https://geocode-maps.yandex.ru/1.x/?format=json&apikey=8a520284-9af4-4c0c-89b5-5cd53b11ae5b&geocode=";
         String query = yandex+nameP;
@@ -27,7 +27,7 @@ public class HttpRequestYandex{
                     sb.append(line);
                     sb.append("\n");
                 }
-                System.out.println(sb.toString());
+                //System.out.println(sb.toString());
             } else {
                 System.out.println("fail:" + connection.getResponseCode() + ", " + connection.getResponseMessage());
             }
@@ -56,18 +56,19 @@ public class HttpRequestYandex{
                                         str2 += s.charAt(i + 7);
                                         i++;
                                     }
+                                    break;
                                 }
             }
 
         }
-        System.out.println(str1 + ' ' + str2);
+        //System.out.println(str1 + ' ' + str2);
         float longitude = Float.parseFloat(str1);
-        float latitude = Float.parseFloat(str1);
+        float latitude = Float.parseFloat(str2);
         arLongitude.add(longitude);
         arLatitude.add(latitude);
     }
     private String fit(String nameP){
-        System.out.println(nameP);
+        //System.out.println(nameP);
         char [] charr = nameP.toCharArray();
         for (int i = 0; i < charr.length; i++) {
             if ((charr[i] == ' ')&&(charr[i+1]!=',')) {
@@ -78,7 +79,7 @@ public class HttpRequestYandex{
         for(int i=0;i<charr.length;i++) {
             nameP += charr[i];
         }
-        System.out.println(nameP);
+        //System.out.println(nameP);
         String s1 ;
         String s2 ;
         for(int i = 0; i<nameP.length();i++){
@@ -88,7 +89,7 @@ public class HttpRequestYandex{
                 nameP = s1+s2;
             }
         }
-        System.out.println(nameP);
+        //System.out.println(nameP);
         return nameP;
     }
 }

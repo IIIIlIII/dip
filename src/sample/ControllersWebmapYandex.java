@@ -1,35 +1,56 @@
 package sample;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import static sample.ControllerAddCoor.coordinate;
-import static sample.ControllerAddCoor.matrixSmCoor;
+import static sample.ControllerAddCoor.layerscoor;
 import static sample.ControllerLoad.arrMatixSmLoad;
 import static sample.ControllerLoad.matrixSmLoad;
 import static sample.ControllerLoadCoor.*;
 import static sample.ControllerTableWithAdresses.coor;
-import static sample.ControllerTableWithAdresses.matrixSm;
+import static sample.MenuController.*;
+
 
 public class ControllersWebmapYandex {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private WebView YandexWeb;
 
     @FXML
     void initialize() {
-        if(coordinate!=null)
-            htmlPage(coordinate.ArLatitudeCoor,coordinate.ArLongitudeCoor,matrixSmCoor);
+        if(layerscoor!=null)
+        {
+            Iterator<Coor> iter = layerscoor.ListLayersCoor.iterator();
+            ArrayList<Float> ar;
+            ArrayList<Float> ar2 = new ArrayList<>();
+            int k = 0;
+            while(iter.hasNext()){
+                ar = iter.next().ArLongitudeCoor;
+                for(int i=k;i<ar.size();i++)
+                    ar2.add(ar.get(i));
+            }
+            Iterator<Coor> iter2 = layerscoor.ListLayersCoor.iterator();
+            ArrayList<Float> ar3;
+            ArrayList<Float> ar4 = new ArrayList<>();
+            int l = 0;
+            while(iter2.hasNext()){
+                ar3 = iter2.next().ArLatitudeCoor;
+                for(int i=l;i<ar3.size();i++)
+                    ar4.add(ar3.get(i));
+            }
+            Iterator<Float> iter3 = ar4.iterator();
+            while(iter3.hasNext()){
+                System.out.println(iter3.next());
+            }
+            htmlPage(ar2,ar4,matrixSmCoorB);
+        }
+//        if(coordinate!=null)
+//            htmlPage(coordinate.ArLatitudeCoor,coordinate.ArLongitudeCoor,matrixSmCoor);
         if(coor!=null)
             htmlPage(coor.arLatitude,coor.arLongitude,matrixSm);
         if(arr!=null){
@@ -78,7 +99,7 @@ public class ControllersWebmapYandex {
             }
         }
     }
-    public void htmlPage(ArrayList<Float> arLat,ArrayList<Float> arLong,MatrixSm arrSm){
+    public void htmlPage(ArrayList<Float> arLat, ArrayList<Float> arLong, MatrixSm arrSm){
         int k=0;
         WebEngine webEngine = YandexWeb.getEngine();
         String html = "<!DOCTYPE html>\n" +
@@ -143,7 +164,7 @@ public class ControllersWebmapYandex {
                 "\n" +
                 "</html>";
         html+=html5;
-        System.out.println(html);
+        //System.out.println(html);
         webEngine.loadContent(html);
         webEngine.loadContent(html,"text/html");
     }
@@ -168,7 +189,7 @@ public class ControllersWebmapYandex {
             for (int j = 0 + i; j < matrix.length; j++) {
                 if (matrix[i][j] != 0) {
                     html2 = "[" + arLat.get(i) + "," + arLong.get(i) + "],\n" + "[" + arLat.get(j) + "," + arLong.get(j) + "]";
-                    html1 = "var myPolyline" + k + " = new ymaps.GeoObject({\n" +
+                    html1 = "var myPolyline " + k + " = new ymaps.GeoObject({\n" +
                             "geometry:{\n" +
                             "type: \"LineString\",\n" +
                             "coordinates:[\n";

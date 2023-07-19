@@ -15,16 +15,12 @@ public class MouseGestures {
     }
 
     public void makeDraggable( final Node node) {
-
-
         node.setOnMousePressed(onMousePressedEventHandler);
         node.setOnMouseDragged(onMouseDraggedEventHandler);
         node.setOnMouseReleased(onMouseReleasedEventHandler);
-
     }
 
     EventHandler<MouseEvent> onMousePressedEventHandler = new EventHandler<MouseEvent>() {
-
         @Override
         public void handle(MouseEvent event) {
             Node node = (Node) event.getSource();

@@ -1,9 +1,8 @@
 package com.fxgraph.cells;
 
+import com.fxgraph.graph.Cell;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
-
-import com.fxgraph.graph.Cell;
 
 public class TriangleCell extends Cell {
 

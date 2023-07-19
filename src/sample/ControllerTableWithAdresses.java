@@ -1,15 +1,17 @@
 package sample;
-        import javafx.fxml.FXML;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.TextField;
-        import javafx.stage.Stage;
 
-        import java.net.URL;
-        import java.util.Iterator;
-        import java.util.ResourceBundle;
-import static sample.MenuController.adress;
+import httpRequest.HttpRequestSputnik;
+import httpRequest.HttpRequestYandex;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-import httpRequest.*;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.ResourceBundle;
+
+import static sample.MenuController.*;
 
 public class ControllerTableWithAdresses {
 
@@ -30,14 +32,13 @@ public class ControllerTableWithAdresses {
 
 
     static Coor coor;
-    public static MatrixSm matrixSm;
-    static MatrixCost matrixCost;
 
     @FXML
     void initialize() {
         coor = new Coor();
         HttpRequestSputnik httpRequest = new HttpRequestSputnik();
         HttpRequestYandex httpRequestYandex = new HttpRequestYandex();
+        adress.FlagOn();
         OkayButton.setOnAction(event -> {
             Stage stage = (Stage) OkayButton.getScene().getWindow();
             stage.close();

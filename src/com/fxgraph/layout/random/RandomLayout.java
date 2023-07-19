@@ -1,11 +1,11 @@
 package com.fxgraph.layout.random;
 
-import java.util.List;
-import java.util.Random;
-
 import com.fxgraph.graph.Cell;
 import com.fxgraph.graph.Graph;
 import com.fxgraph.layout.base.Layout;
+
+import java.util.List;
+import java.util.Random;
 
 public class RandomLayout extends Layout {
 

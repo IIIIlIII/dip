@@ -1,13 +1,13 @@
 package com.fxgraph.graph;
 
+import com.fxgraph.cells.LabelCell;
+import com.fxgraph.cells.RectangleCell;
+import com.fxgraph.cells.TriangleCell;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.fxgraph.cells.LabelCell;
-import com.fxgraph.cells.TriangleCell;
-import com.fxgraph.cells.RectangleCell;
 
 public class Model {
 

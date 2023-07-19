@@ -1,10 +1,10 @@
 package com.fxgraph.graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cell extends Pane {
 

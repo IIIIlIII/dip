@@ -1,7 +1,5 @@
 package sample;
 
-import java.util.ArrayList;
-
 public class Coordinate {
     public Float lon;
     public Float lat;

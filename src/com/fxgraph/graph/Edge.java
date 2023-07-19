@@ -1,11 +1,12 @@
 package com.fxgraph.graph;
 
-import com.fxgraph.cells.LabelCell;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
-import static sample.ControllerTableWithAdresses.matrixSm;
+
+import static sample.MenuController.*;
+
 
 public class Edge extends Group {
 
@@ -34,14 +35,23 @@ public class Edge extends Group {
         getChildren().add(line);
 
         line.setOnMouseClicked(new EventHandler<MouseEvent>(){
-
             @Override
             public void handle(MouseEvent arg0) {
                 line.startXProperty().bind( source.layoutXProperty().add(source.getBoundsInParent().getWidth() / 2.0));
                 line.startYProperty().bind( source.layoutYProperty().add(source.getBoundsInParent().getHeight() / 2.0));
                 line.endXProperty().bind( source.layoutXProperty().add(source.getBoundsInParent().getWidth() / 2.0));
                 line.endYProperty().bind( source.layoutYProperty().add(source.getBoundsInParent().getHeight() / 2.0));
-                matrixSm.deleteLine(source.cellId,target.cellId);
+                if(matrixSm.matrixSize() != 0) {
+                    matrixSm.deleteLine(source.cellId, target.cellId);
+                    //matrixCost.deleteLine(source.cellId, target.cellId);
+                }
+                if(matrixSmCoor.matrixSize() != 0) {
+                    matrixSmCoor.deleteLineCoor(source.cellId, target.cellId);
+                   // matrixCostCoor.deleteLine(source.cellId, target.cellId);
+                }
+                //else
+                   matrixSm.matrixShow();
+                   matrixSmCoor.matrixShow();
             }
         });
     }
